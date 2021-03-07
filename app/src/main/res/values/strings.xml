@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Guess The Car Game</string>
+    <string name="app_menu">Main Menu</string>
+    <string name="btn_car_make">Identify The Car Make</string>
+    <string name="btn_hints"> Hints </string>
+    <string name="btn_car_image">Identify The Car Image</string>
+    <string name="btn_advance_level">Advance Level</string>
 </resources>
