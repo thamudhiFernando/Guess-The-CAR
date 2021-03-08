@@ -1,8 +1,23 @@
 <resources>
+<!--    App Name-->
     <string name="app_name">Guess The Car Game</string>
+<!--    Screen Headers-->
     <string name="app_menu">Main Menu</string>
+<!--    Buttons-->
     <string name="btn_car_make">Identify The Car Make</string>
     <string name="btn_hints"> Hints </string>
     <string name="btn_car_image">Identify The Car Image</string>
     <string name="btn_advance_level">Advance Level</string>
+    <string name="btn_identify">Identify</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_submit">Submit</string>
+<!--    Image Description-->
+    <string name="image_random_load_make">Random Image Loader - Car Make Screen</string>
+<!--    Drop Down Spinner-->
+    <string-array name="planets_array">
+<!--        <item>Mercury</item>-->
+    </string-array>
+<!--    Toast Messages-->
+    <string name="toast_message_correct">CORRECT!</string>
+    <string name="toast_message_wrong">WRONG!</string>
 </resources>
