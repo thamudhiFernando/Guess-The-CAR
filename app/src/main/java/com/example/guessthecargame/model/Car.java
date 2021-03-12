@@ -9,13 +9,13 @@ public class Car {
 
     private int id;
     private String make;
-    private Blob image;
+    private String image;
 
     public Car() {
 
     }
 
-    public Car(int id, String make, Blob image) {
+    public Car(int id, String make, String image) {
         this.id = id;
         this.make = make;
         this.image = image;
@@ -37,11 +37,11 @@ public class Car {
         this.make = make;
     }
 
-    public Blob getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

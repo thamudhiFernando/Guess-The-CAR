@@ -12,19 +12,21 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
-//    CarGameDatabase carGameDatabase;
+    CarGameDatabase carGameDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        carGameDatabase = new CarGameDatabase(this);
-//        try {
-//            carGameDatabase.insertData();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        carGameDatabase = new CarGameDatabase(this);
+        try {
+            carGameDatabase.insertData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("--------------------");
+
     }
 
     public void identifyTheCarMakeActivity(View view) {
