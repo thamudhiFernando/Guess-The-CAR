@@ -12,7 +12,9 @@ import androidx.annotation.Nullable;
 import com.example.guessthecargame.model.Car;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CarGameDatabase extends SQLiteOpenHelper {
@@ -76,5 +78,21 @@ public class CarGameDatabase extends SQLiteOpenHelper {
             }
         }
         return spinnerarray;
+    }
+
+
+    public List<Car> getCarRandom() {
+        sqLiteDatabase = getReadableDatabase();
+        Cursor cr = sqLiteDatabase.rawQuery("select * from "+DB_TABLE ,null);
+
+        List<Car> carList = new ArrayList<>();
+
+        while (cr.moveToNext()){
+            int id = Integer.parseInt(cr.getString(0));
+            String make = cr.getString(1);
+            String image = cr.getString(2);
+            carList.add(new Car(id,make,image));
+        }
+        return carList;
     }
 }

@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imageView_random_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="424dp"
+        android:layout_height="296dp"
         android:contentDescription="@string/image_random_load_make"
         android:scaleType="centerInside"
         android:visibility="visible"
