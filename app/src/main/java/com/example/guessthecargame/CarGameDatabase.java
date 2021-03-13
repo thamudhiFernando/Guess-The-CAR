@@ -50,9 +50,9 @@ public class CarGameDatabase extends SQLiteOpenHelper {
         sqLiteDatabase = getWritableDatabase();
         
         ContentValues values = new ContentValues();
-        values.put(Car.COLUMN_MAKE, "Audi");
-        values.put(Car.COLUMN_IMAGE, (R.drawable.car3)+"");
-        System.out.println(values.toString());
+        values.put(Car.COLUMN_MAKE, "Panda");
+        values.put(Car.COLUMN_IMAGE, (R.drawable.car6)+"");
+//        System.out.println(values.toString());
 
         // insert row
         sqLiteDatabase.insert(DB_TABLE, null,values);
@@ -71,7 +71,7 @@ public class CarGameDatabase extends SQLiteOpenHelper {
             int id = Integer.parseInt(cr.getString(0));
             String make = cr.getString(1);
             String image = cr.getString(2);
-            Log.d(LOG_TAG,id + " - " + make + " - " + image);
+//            Log.d(LOG_TAG,id + " - " + make + " - " + image);
 
             if (!spinnerarray.containsValue(make)){
                 spinnerarray.put(id,make);
