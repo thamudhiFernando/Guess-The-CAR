@@ -2,10 +2,13 @@ package com.example.guessthecargame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.guessthecargame.model.Car;
 
@@ -25,6 +28,7 @@ public class IdentifyTheCarImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identify_the_car_image);
         randomImageSet();
+        randomMake();
     }
 
     public void submitImage(View view) {
@@ -43,10 +47,8 @@ public class IdentifyTheCarImageActivity extends AppCompatActivity {
             if (carArray.size() >= 3){
                 break;
             }
-
             if (!carArray.containsKey(car.getMake())){
                 carArray.put(car.getMake(),car.getImage());
-                Log.d(LOG_TAG, car.toString() + "---------------");
             }
         }
         ArrayList<String> carimageList = new ArrayList<>();
@@ -62,5 +64,35 @@ public class IdentifyTheCarImageActivity extends AppCompatActivity {
             ImageView diceImage3 = (ImageView) findViewById(R.id.imageView_select_3);
             diceImage3.setImageResource(Integer.parseInt(carimageList.get(2)));
         }
+    }
+
+    public void randomMake(){
+        Map<Integer, String> carMake = carGameDatabase.getCarMake();
+        int randomValue = new Random().nextInt(carMake.size());
+
+        ArrayList<String> arrayMake = new ArrayList<String>();
+        for (String make:carMake.values()) {
+            arrayMake.add(make);
+        }
+        TextView viewById = (TextView) findViewById(R.id.textview_select_image);
+//        viewById.setText(viewById.getText() + " " + arrayMake.get(randomValue));
+
+        String html = viewById.getText() + " <font color='#018786'>" + arrayMake.get(randomValue) + "</font>";
+        viewById.setText(Html.fromHtml(html));
+    }
+
+    public void selectedImage1(View view) {
+        ImageView viewById = (ImageView) findViewById(R.id.imageView_select_1);
+//        viewById.setImageDrawable(getResources().getDrawable(R.drawable.your_drawable));
+        Drawable.ConstantState constantState = viewById.getDrawable().getConstantState();
+        System.out.println("constantState  : " + constantState);
+    }
+
+    public void selectedImage2(View view) {
+        ImageView viewById = (ImageView) findViewById(R.id.imageView_select_2);
+    }
+
+    public void selectedImage3(View view) {
+        ImageView viewById = (ImageView) findViewById(R.id.imageView_select_3);
     }
 }
