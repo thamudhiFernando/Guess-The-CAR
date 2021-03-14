@@ -3,6 +3,7 @@
     <string name="app_name">Guess The Car Game</string>
     <!--    Screen Headers-->
     <string name="app_menu">Main Menu</string>
+    <string name="text_view_select_image">Select the CORRECT image of : </string>
     <!--    Buttons-->
     <string name="btn_car_make">Identify The Car Make</string>
     <string name="btn_hints"> Hints </string>
@@ -14,6 +15,9 @@
     <string name="btn_submit">Submit</string>
     <!--    Image Description-->
     <string name="image_random_load_make">Random Image Loader - Car Make Screen</string>
+    <string name="imageView_select_1">Select Random Image - Car Image Screen</string>
+    <string name="imageView_select_2">Select Random Image - Car Image Screen</string>
+    <string name="imageView_select_3">Select Random Image - Car Image Screen</string>
     <!--    Drop Down Spinner-->
     <string-array name="planets_array">
         <!--        <item>Mercury</item>-->
