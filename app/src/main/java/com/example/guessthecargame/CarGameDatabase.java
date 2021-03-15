@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class CarGameDatabase extends SQLiteOpenHelper {
 
-    static final private String DB_NAME = "CarGames";
+    static final private String DB_NAME = "CarGameDB";
     static final private String DB_TABLE = "Car";
     static final private int DB_VERSION = 1;
 
@@ -49,13 +49,18 @@ public class CarGameDatabase extends SQLiteOpenHelper {
     public void insertData() throws IOException {
         sqLiteDatabase = getWritableDatabase();
         
-        ContentValues values = new ContentValues();
-        values.put(Car.COLUMN_MAKE, "Panda");
-        values.put(Car.COLUMN_IMAGE, (R.drawable.car6)+"");
-//        System.out.println(values.toString());
+        ContentValues values1 = new ContentValues();
+        values1.put(Car.COLUMN_MAKE, "Ferrari");
+        values1.put(Car.COLUMN_IMAGE, (R.drawable.car31)+"");
+
+        ContentValues values2 = new ContentValues();
+        values2.put(Car.COLUMN_MAKE, "Ferrari");
+        values2.put(Car.COLUMN_IMAGE, (R.drawable.car32)+"");
+
 
         // insert row
-        sqLiteDatabase.insert(DB_TABLE, null,values);
+        sqLiteDatabase.insert(DB_TABLE, null,values1);
+        sqLiteDatabase.insert(DB_TABLE, null,values2);
         // close db connection
         sqLiteDatabase.close();
 //        Toast.makeText(ctx,"Data Saved Successfully",Toast.LENGTH_SHORT).show();

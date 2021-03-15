@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     CarGameDatabase carGameDatabase;
+    private static boolean isInserted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         carGameDatabase = new CarGameDatabase(this);
-        try {
-            carGameDatabase.insertData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("--------------------");
-
+       /* if (isInserted==false){
+            try {
+                carGameDatabase.insertData();
+                isInserted = true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
     }
 
     public void identifyTheCarMakeActivity(View view) {

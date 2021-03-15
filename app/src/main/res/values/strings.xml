@@ -22,15 +22,17 @@
     <string name="imageView_random_1">Load Random Image - Advance Screen</string>
     <string name="imageView_random_2">Load Random Image - Advance Screen</string>
     <string name="imageView_random_3">Load Random Image - Advance Screen</string>
+    <string name="imageView_gamelogo">Game Logo</string>
     <!--    Drop Down Spinner-->
     <string-array name="planets_array">
-        <!--        <item>Mercury</item>-->
     </string-array>
     <!--    Toast Messages-->
     <string name="toast_message_correct">CORRECT!</string>
     <string name="toast_message_wrong">WRONG!</string>
     <!--    Input Text-->
     <string name="input_message">Car Make</string>
+    <!--    Switch Text-->
+    <string name="switch_text">Timer</string>
     <!--    Hint Text-->
     <string name="hint_1">Enter Here</string>
     <string name="hint_2">Enter Here</string>
