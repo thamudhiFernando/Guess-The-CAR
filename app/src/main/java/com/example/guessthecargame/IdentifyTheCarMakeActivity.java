@@ -97,7 +97,6 @@ public class IdentifyTheCarMakeActivity extends AppCompatActivity implements Ada
                         //set negative button
                         .setCancelable(true)
                         .show();
-//            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.GREEN))
             }else {
                 String html = "Answer is : <font color='#ffea00'>"+car.getMake() +"</font>";
                 AlertDialog alertDialog = new AlertDialog.Builder(this)

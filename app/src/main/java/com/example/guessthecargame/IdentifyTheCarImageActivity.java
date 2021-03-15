@@ -2,12 +2,15 @@ package com.example.guessthecargame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.guessthecargame.model.Car;
@@ -21,6 +24,9 @@ import java.util.Random;
 public class IdentifyTheCarImageActivity extends AppCompatActivity {
     CarGameDatabase carGameDatabase;
     private Car car;
+    Map<Integer,String> carIdMakeArray = new HashMap<>();
+    int indexOfSelectedImage = 0;
+    private String randomMake ;
     private static final String LOG_TAG = CarGameDatabase.class.getSimpleName();
 
     @Override
@@ -32,7 +38,48 @@ public class IdentifyTheCarImageActivity extends AppCompatActivity {
     }
 
     public void submitImage(View view) {
-
+        ArrayList<String> arrayMake = new ArrayList<String>();
+        for (String make:carIdMakeArray.values()) {
+            arrayMake.add(make);
+        }
+        if (randomMake.toLowerCase().equals(arrayMake.get(indexOfSelectedImage).toLowerCase())){
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    //set icon
+//                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    //set title
+                    .setTitle(Html.fromHtml("<font color='#00b300'>CORRECT ANSWER !</font>"))
+                    //set positive button
+                    .setPositiveButton(Html.fromHtml("<font color='#00b300'>OK</font>"), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //set what would happen when positive button is clicked
+                            randomImageSet();
+                            randomMake();
+                        }
+                    })
+                    //set negative button
+                    .setCancelable(true)
+                    .show();
+        }else {
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    //set icon
+//                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    //set title
+                    .setTitle(Html.fromHtml("<font color='#E60000'>WRONG ANSWER !</font>"))
+                    //set message
+//                        .setMessage("Answer is : " + car.getMake())
+                    .setMessage("Answer is : ")
+            //set positive button
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //set what would happen when positive button is clicked
+                        }
+                    })
+                    //set negative button
+                    .setCancelable(true)
+                    .show();
+        }
     }
 
     public void randomImageSet() {
@@ -49,6 +96,8 @@ public class IdentifyTheCarImageActivity extends AppCompatActivity {
             }
             if (!carArray.containsKey(car.getMake())){
                 carArray.put(car.getMake(),car.getImage());
+                System.out.println(car.getMake()+" --- "+car.getImage());
+                carIdMakeArray.put(car.getId(),car.getMake());
             }
         }
         ArrayList<String> carimageList = new ArrayList<>();
@@ -67,32 +116,27 @@ public class IdentifyTheCarImageActivity extends AppCompatActivity {
     }
 
     public void randomMake(){
-        Map<Integer, String> carMake = carGameDatabase.getCarMake();
-        int randomValue = new Random().nextInt(carMake.size());
+        int randomValue = new Random().nextInt(carIdMakeArray.size());
 
         ArrayList<String> arrayMake = new ArrayList<String>();
-        for (String make:carMake.values()) {
+        for (String make:carIdMakeArray.values()) {
             arrayMake.add(make);
         }
+        randomMake = arrayMake.get(randomValue);
         TextView viewById = (TextView) findViewById(R.id.textview_select_image);
-//        viewById.setText(viewById.getText() + " " + arrayMake.get(randomValue));
-
-        String html = viewById.getText() + " <font color='#018786'>" + arrayMake.get(randomValue) + "</font>";
+        String html = "Select the CORRECT image of :  <font color='#018786'>" + randomMake + "</font>";
         viewById.setText(Html.fromHtml(html));
     }
 
     public void selectedImage1(View view) {
-        ImageView viewById = (ImageView) findViewById(R.id.imageView_select_1);
-//        viewById.setImageDrawable(getResources().getDrawable(R.drawable.your_drawable));
-        Drawable.ConstantState constantState = viewById.getDrawable().getConstantState();
-        System.out.println("constantState  : " + constantState);
+        indexOfSelectedImage = 0;
     }
 
     public void selectedImage2(View view) {
-        ImageView viewById = (ImageView) findViewById(R.id.imageView_select_2);
+        indexOfSelectedImage = 1;
     }
 
     public void selectedImage3(View view) {
-        ImageView viewById = (ImageView) findViewById(R.id.imageView_select_3);
+        indexOfSelectedImage = 2;
     }
 }
