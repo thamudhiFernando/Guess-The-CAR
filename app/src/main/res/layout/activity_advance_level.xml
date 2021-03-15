@@ -60,10 +60,11 @@
         app:srcCompat="@drawable/car1" />
 
     <Button
-        android:id="@+id/button_submit"
+        android:id="@+id/button_submit_advance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:onClick="submitAnswers"
         android:text="@string/btn_submit"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,13 +77,14 @@
         android:layout_height="47dp"
         android:layout_marginTop="92dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/input_message"
+        android:inputType="textLongMessage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/imageView_1"
         app:layout_constraintTop_toBottomOf="@+id/textView_points"
-        tools:ignore="LabelFor"
+        android:hint="@string/hint_1"
         android:importantForAutofill="no" />
 
     <EditText
@@ -91,13 +93,14 @@
         android:layout_height="47dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/input_message"
+        android:inputType="textLongMessage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/imageView_2"
         app:layout_constraintTop_toBottomOf="@+id/editText_input_1"
-        tools:ignore="LabelFor"
+        android:hint="@string/hint_2"
         android:importantForAutofill="no" />
 
     <EditText
@@ -106,11 +109,13 @@
         android:layout_height="47dp"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/input_message"
+        android:inputType="textLongMessage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView_3"
         app:layout_constraintTop_toBottomOf="@+id/editText_input_2"
-        tools:ignore="LabelFor"
+        android:hint="@string/hint_3"
         android:importantForAutofill="no" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

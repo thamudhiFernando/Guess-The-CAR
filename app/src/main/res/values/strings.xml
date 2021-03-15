@@ -31,4 +31,8 @@
     <string name="toast_message_wrong">WRONG!</string>
     <!--    Input Text-->
     <string name="input_message">Car Make</string>
+    <!--    Hint Text-->
+    <string name="hint_1">Enter Here</string>
+    <string name="hint_2">Enter Here</string>
+    <string name="hint_3">Enter Here</string>
 </resources>
